@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;  
+
+*{
+  box-sizing: border-box;
+}
+
+@layer base{
+  body {
+    @apply text-gray-300 
+  }
+  .nav-element {
+    @apply p-4
+  }
+  .btn {
+    @apply p-4 h-14 border-2 bg-zinc-400 text-zinc-800 hover:text-zinc-400 hover:bg-zinc-800 transition font-medium
+
+  }
+
+  .appointment-card{
+    @apply bg-zinc-300 text-stone-700 h-80 w-60
+  }
+  .booking-component {
+    @apply h-full w-full bg-gray-700 }
+
+  .booking-form{
+    @apply  w-80 h-96 m-auto flex justify-center items-center 
+  }
+  .dialog-booking{
+    @apply  w-80 h-96 
+  }
+  .artist-booking {
+    @apply flex flex-wrap gap-4 gap-y-16 p-20 justify-around h-full
+  }
+  .card{
+    @apply hover:scale-105 hover:brightness-75 transition-all 
+  }
+  h2{
+    @apply text-2xl font-bold m-auto
+  }
+}
+
+/* background */
+
+.backgroundImage {
+  background-image: url("./assets/img-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.booking-component {
+  background-image: url("./assets/bg-ink.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+
+
+  scrollbar-width: none;
+  overflow-y: scroll;
+  
+}
+.artist-page{
+  scrollbar-width: none;
+  overflow-y: scroll;
+  
+}
+.artists-list{
+  scrollbar-width: none;
+  overflow-y: scroll;
+  
+}
+
+.artist-page::-webkit-scrollbar {
+  display: none;
+}
