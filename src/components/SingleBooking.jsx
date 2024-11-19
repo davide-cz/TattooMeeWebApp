@@ -5,7 +5,7 @@ import EditBooking from "./EditBooking";
 
 
 
-const { VITE_MONGO_URI }= import.meta.env
+const { VITE_VERCEL_URI }= import.meta.env
 
 export default function (/* {name , number , description , date} */){
 
@@ -22,7 +22,7 @@ export default function (/* {name , number , description , date} */){
 
         const fetchABooking = async ()=>{
         try{
-            const response= await  axios.get(`${VITE_MONGO_URI}/booking/${id}`)
+            const response= await  axios.get(`${VITE_VERCEL_URI}/booking/${id}`)
             setSingBook(response.data)
         }
         catch(error){

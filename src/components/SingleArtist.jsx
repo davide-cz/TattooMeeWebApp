@@ -3,11 +3,11 @@ import { useState } from "react"
 
 export default function ({description , name , btntext , showButton , date ,userNumber,clientName, tattooArtistId }){
     
-    const { VITE_MONGO_URI }= import.meta.env
+    const { VITE_VERCEL_URI }= import.meta.env
 
     const handleBooking = async () => {
         try {
-          const response = await axios.post( `${VITE_MONGO_URI}/booking`, {
+          const response = await axios.post( `${VITE_VERCEL_URI}/booking`, {
             date,
             userNumber,
             tattooArtistId,

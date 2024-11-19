@@ -3,7 +3,7 @@ import axios from 'axios';
 import AuthContext from '../utilities/AuthContext';
 
 
-const { VITE_MONGO_URI } = import.meta.env
+const { VITE_VERCEL_URI } = import.meta.env
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post(`http://${ VITE_MONGO_URI }/user/login`, {
+      const response = await axios.post(`http://${ VITE_VERCEL_URI }/user/login`, {
         username,
         password,
       });

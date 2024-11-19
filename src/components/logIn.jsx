@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const { VITE_URI } = import.meta.env
+const { VITE_VERCEL_URI } = import.meta.env
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -11,7 +11,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post(`${VITE_URI}/user/signup`, {
+      const response = await axios.post(`${VITE_VERCEL_URI}/user/signup`, {
         name,
         email,
         password,
