@@ -4,7 +4,7 @@ import AuthContext from "../utilities/AuthContext";
 import EditBooking from "../components/EditBooking";
 import { Link } from "react-router-dom";
 
-const { VITE_URI } = import.meta.env
+const { VITE_MONGO_URI } = import.meta.env
 export default function () {
 
   
@@ -20,7 +20,7 @@ export default function () {
     
           const deleteAppointment = async (id)=>{
             try{ 
-                const response = await axios.delete(`${VITE_URI}/booking/${id}`)
+                const response = await axios.delete(`${VITE_MONGO_URI}/booking/${id}`)
                 console.log('eliminazione riuscita')
             }catch (error) {
               console.error(`Errore nella cancellazione dell'appuntamento`, error);
@@ -31,7 +31,7 @@ export default function () {
     useEffect(() => {
         const fetchAppointment = async () => {
           try {
-            const response = await axios.get(`${VITE_URI}/user/${userId}`);
+            const response = await axios.get(`${VITE_MONGO_URI}/user/${userId}`);
             setAppointments(response.data);
           } catch (error) {
             console.error('Errore nel recuperare gli appuntamenti', error);

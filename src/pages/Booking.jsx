@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import SingleArtist from "../components/SingleArtist";
 
-const { VITE_URI } = import.meta.env
+const { VITE_MONGO_URI } = import.meta.env
 
 
 export default function (){
@@ -15,7 +15,7 @@ const [pierceOrTattoo, setPierceOrTattoo] = useState('');
 useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const response = await axios.get(`${VITE_URI}/user/tattooer`);
+        const response = await axios.get(`${VITE_MONGO_URI}/user/tattooer`);
         setArtists(response.data);
       } catch (error) {
         console.error('Errore nel recuperare i tatuatori', error);

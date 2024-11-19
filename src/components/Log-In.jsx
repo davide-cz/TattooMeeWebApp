@@ -2,6 +2,9 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import AuthContext from '../utilities/AuthContext';
 
+
+const { VITE_MONGO_URI } = import.meta.env
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +17,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3000/user/login', {
+      const response = await axios.post(`http://${ VITE_MONGO_URI }/user/login`, {
         username,
         password,
       });
@@ -31,7 +34,7 @@ const Login = () => {
       alert('Login effettuato con successo');
       // Reindirizza o aggiorna lo stato dell'applicazione
     } catch (error) {
-      setError('Email o password non validi');
+      setError('username o password non validi');
       console.error('Errore nel login:', error);
     } finally {
       setLoading(false);

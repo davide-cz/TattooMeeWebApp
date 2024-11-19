@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 
-const { VITE_URI } = import.meta.env
+const { VITE_MONGO_URI } = import.meta.env
 
 const EditBooking = ( {id , isOpen , setIsOpen }) => {
 
@@ -34,7 +34,7 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
     // Carica i dettagli della prenotazione quando il componente viene montato
     const fetchBooking = async () => {
       try {
-        const response = await axios.get(`${VITE_URI}/booking/${id}`);
+        const response = await axios.get(`${VITE_MONGO_URI}/booking/${id}`);
         setBooking(response.data);
         setDate(response.data.date.toString().split('T')[0]);
         setTime(response.data.time);
@@ -53,7 +53,7 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
     setMessage('');
     try {
       // Converti la data al formato 'YYYY-MM-DD' prima dell'invio
-      const response = await axios.patch(`${VITE_URI}/booking/${id}`, {
+      const response = await axios.patch(`${VITE_MONGO_URI}/booking/${id}`, {
         date,
         time,
       });

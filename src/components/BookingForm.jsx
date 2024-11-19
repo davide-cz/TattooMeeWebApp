@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const {VITE_URI} = import.meta.env;
+const {VITE_MONGO_URI} = import.meta.env;
 
 
 /* http://localhost:3000 */
@@ -14,7 +14,7 @@ export default  function()  {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const response = await axios.get(`${VITE_URI}/artists`);
+        const response = await axios.get(`${VITE_MONGO_URI}/artists`);
         setArtists(response.data);
       } catch (error) {
         console.error('Errore nel recuperare i tatuatori', error);
@@ -32,7 +32,7 @@ export default  function()  {
       const handleBooking = async () => {
         console.log(artistId)
         try {
-          const response = await axios.post( `${VITE_URI}/booking`, {
+          const response = await axios.post( `${VITE_MONGO_URI}/booking`, {
             date,
             time,
             tattooArtistId: artistId
