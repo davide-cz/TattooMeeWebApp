@@ -45,7 +45,7 @@ export default function () {
     return (
         <>
             <div className="m-auto justify-center gap-4 w-full align-middle ">
-                {appointments.map((ap,i)=>{
+                {appointments?.map((ap,i)=>{
                   return (
                     <Link key={ap.clientName} to={`/personal-area/appointments/${ap._id}`}>
                     

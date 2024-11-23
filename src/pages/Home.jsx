@@ -6,31 +6,28 @@ import { Link } from 'react-router-dom';
 const {VITE_URI} = import.meta.env;
 
 const Home = () => {
- /*  const [artists, setArtists] = useState([]);
 
-  // Effettua la chiamata API per ottenere i tatuatori
-  useEffect(() => {
-    const fetchArtists = async () => {
-      try {
-        const response = await axios.get(`${VITE_URI}/artists`);
-        setArtists(response.data);
-      } catch (error) {
-        console.error('Errore nel recuperare i tatuatori', error);
-      }
-    };
-    fetchArtists();
-  }, []);
- */
+  
+//  Smooth Transition per rendering 
 
-      {/* <h2>Tatuatori Disponibili</h2>
-      <ul>
-        {artists.map(artist => (
-          <li key={artist._id}>{artist.name} - {artist.email}</li>
-        ))}
-      </ul> */}
+const [isVisible, setIsVisible] = useState(false);
+
+useEffect(() => {
+  // Ritarda l'attivazione della visibilità per consentire l'animazione
+  const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); // Ritardo opzionale per evitare "flash" iniziale
+    return () =>{ clearTimeout(timer)
+      setIsVisible(true);
+  }; // Pulizia al dismount
+}, [ isVisible ]);
+
+const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
+
+
 
   return (
-    <div className='backgroundImage justify-middle items-center align-middle h-full w-full '>
+    <div className={`form-item backgroundImage justify-middle items-center align-middle h-full w-full ${smoothTransition}`}>
       <div className='mx-auto mt-20 h-60 w-60 bg-gray-600  rounded-full border-4 border-stone-800'>
 
       </div>

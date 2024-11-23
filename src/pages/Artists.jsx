@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import SingleArtist from "../components/SingleArtist";
 
+import { RiLoader5Fill } from "react-icons/ri";
+
 
 
 export default function (){
@@ -14,11 +16,13 @@ export default function (){
   const rndBackGround = Math.ceil(Math.random()*3)+1
 
     const [artists, setArtists] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchArtists = async () => {
       try {
         const response = await axios.get(`${VITE_VERCEL_URI}/user/tattooer`);
         setArtists(response.data);
+        setLoading(false )  
       } catch (error) {
         console.error('Errore nel recuperare i tatuatori', error);
       }
@@ -27,22 +31,33 @@ export default function (){
     useEffect(() => {
       fetchArtists();
     }, []);
+    
+
     return (
-        <div className="backgroundImage artist-page h-full w-full">
-          <div className="flex p-20">
-            <h2 className="text-lg font-bold m-auto">Tatuatori Disponibili</h2>
-          </div>
-            <div className="flex gap-8 gap-y-20 flex-shrink-0 flex-wrap justify-center ">
-                {artists?.map(artist => (
-                <SingleArtist 
-                    key={artist._id}
-                    name={artist.name}
-                    description={artist.description}
-                    showButton={false}
-                    />
-                    
-                ))}
+          <div className="backgroundImage artist-page h-full w-full">
+            <div className="flex p-20">
+              <h2 className="text-lg font-bold m-auto">Tatuatori Disponibili</h2>
             </div>
-        </div>
+            { !loading &&
+              <div className="flex gap-8 gap-y-20 flex-shrink-0 flex-wrap justify-center ">
+                  {artists?.map((artist , i)  => (
+                  <SingleArtist 
+                      key={`${artist._id}-${i}` }
+                      name={artist.name}
+                      description={artist.description}
+                      showButton={false}
+                      />
+                  ))}
+              </div>
+              }
+              {
+                loading &&
+              <div className="h-20 w-20 text-zinc-600 font-bold animate-spin m-auto">
+                <RiLoader5Fill className=' icon' />
+              </div>
+              }
+              
+          </div>
+
     )
 }

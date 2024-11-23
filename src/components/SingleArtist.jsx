@@ -22,7 +22,7 @@ export default function ({description , name , btntext , showButton , date ,user
 
 
     return (
-        <div className="card h-[500px] w-[460px] border-2 border-black bg-neutral-950">
+        <div className="card h-[500px] w-[460px] border-2 border-black opacity-95 bg-neutral-950">
             <div className="flex ">
                 <div className="prof-container border-4 justify-between bg-neutral-600 border-black rounded-md   h-40 w-60" >
                     {/* <img src="https://source.unsplash.com/random" alt="profile img" /> */}
