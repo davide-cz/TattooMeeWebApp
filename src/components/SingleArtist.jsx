@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react"
+import CarouselContainer from "./CarouselContainer";
 
 export default function ({description , name , btntext , showButton , date ,userNumber,clientName, tattooArtistId }){
     
@@ -22,7 +23,7 @@ export default function ({description , name , btntext , showButton , date ,user
 
 
     return (
-        <div className="card h-[500px] w-[460px] border-2 border-black opacity-95 bg-neutral-950">
+        <div className="card h-[600px] w-[400px] border-2 border-black opacity-95  bg-neutral-950">
             <div className="flex ">
                 <div className="prof-container border-4 justify-between bg-neutral-600 border-black rounded-md   h-40 w-60" >
                     {/* <img src="https://source.unsplash.com/random" alt="profile img" /> */}
@@ -31,9 +32,10 @@ export default function ({description , name , btntext , showButton , date ,user
                     <h3 className="font-bold">{name}</h3> 
                 </div>
             </div>
-            <div className="p-4 max-w-[480px]" >
-                {description} 
-            </div>
+             <div className="p-4 max-w-[480px]" >
+                Tattoo Style: 
+            </div> 
+            <CarouselContainer/>
             {showButton && 
             <div className="flex justify-center">
                 <button 

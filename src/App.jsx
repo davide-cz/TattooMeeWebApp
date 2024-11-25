@@ -12,6 +12,7 @@ import { AuthProvider } from './utilities/AuthContext'
 import LogOrSign from './pages/LogOrSign'
 import Tattoer from './pages/Tattoer'
 import SingleBooking from './components/SingleBooking'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     <>
      <AuthProvider>
         <NavBar/>
-      <div className='flex pt-20 h-full'>
+      <div className='flex h-full'>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/tattooer' element={<Artists/>}/>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/personal-area/appointments/:id" element={<SingleBooking/>} />
         </Routes>
       </div>
+        <Footer/>
      </AuthProvider>
     </>
   )
