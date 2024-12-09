@@ -1,8 +1,16 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+import AuthContext from "../utilities/AuthContext";
+import { useContext } from "react";
 
-function Footer() {
+
+
+export default function (){
+
+    
+    const {userId , username} = useContext(AuthContext)
     return (
-        <footer className="bg-gray-800  text-white py-6">
+        <footer className=" bg-gradient-to-b from-zinc-900
+                            to-zinc-950  text-white py-6">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     {/* Logo or Brand */}
@@ -13,19 +21,19 @@ function Footer() {
                     {/* Navigation Links */}
                     <ul className="flex space-x-6 mb-4 md:mb-0">
                         <li>
-                            <a href="#home" className="hover:text-gray-400">
-                                Home
-                            </a>
+                        <Link to={'/'}>
+                            Home
+                        </Link>
                         </li>
                         <li>
-                            <a href="#about" className="hover:text-gray-400">
-                                About
-                            </a>
+                            <Link to={'/about-us'}>
+                                Su di noi
+                            </Link>
                         </li>
                         <li>
-                            <a href="#services" className="hover:text-gray-400">
-                                Services
-                            </a>
+                            <Link to={'/booking'}>
+                                prenota
+                            </Link>
                         </li>
                         <li>
                             <a href="#contact" className="hover:text-gray-400">
@@ -57,4 +65,3 @@ function Footer() {
     );
 }
 
-export default Footer;

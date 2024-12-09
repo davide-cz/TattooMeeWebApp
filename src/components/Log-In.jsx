@@ -17,7 +17,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post(`http://${ VITE_VERCEL_URI }/user/login`, {
+      const response = await axios.post(`${ VITE_VERCEL_URI }/user/login`, {
         username,
         password,
       });

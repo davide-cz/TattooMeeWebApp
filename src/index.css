@@ -69,7 +69,7 @@
     @apply  gap-4 gap-y-16 p-20 justify-around h-full
   }
   .card{
-    @apply hover:scale-105 hover:brightness-75 transition-all 
+    @apply  hover:brightness-75 transition-all 
   }
 
 
@@ -109,7 +109,10 @@
   overflow-y: scroll;
   
 }
-
+.scrolling-component{
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
 
 .icon{
   width: 100%;

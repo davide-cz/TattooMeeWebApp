@@ -34,12 +34,12 @@ export default function (){
     
 
     return (
-          <div className="backgroundImage artist-page h-full w-full">
+          <div className="backgroundImage scrolling-component artist-page h-full w-full">
             <div className="flex p-20">
               <h2 className="text-lg font-bold m-auto">Tatuatori Disponibili</h2>
             </div>
             { !loading &&
-              <div className="flex gap-8 gap-y-20 flex-shrink-0 flex-wrap justify-center ">
+              <div className="flex gap-8 gap-y-20 flex-shrink-0 flex-wrap  justify-center ">
                   {artists?.map((artist , i)  => (
                   <SingleArtist 
                       key={`${artist._id}-${i}` }

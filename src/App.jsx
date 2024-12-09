@@ -13,6 +13,7 @@ import LogOrSign from './pages/LogOrSign'
 import Tattoer from './pages/Tattoer'
 import SingleBooking from './components/SingleBooking'
 import Footer from './components/Footer'
+import AboutUs from './pages/AboutUs'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/tattooer' element={<Artists/>}/>
+          <Route path='/about-us' element={<AboutUs/>}/>
           <Route path="/booking" element={<Booking/>} />
           <Route path="/login" element={<LogOrSign/>} />
           <Route path="/personal-area" element={<Tattoer/>} />
