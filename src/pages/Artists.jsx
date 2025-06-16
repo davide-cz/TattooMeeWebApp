@@ -43,8 +43,9 @@ export default function (){
                   {artists?.map((artist , i)  => (
                   <SingleArtist 
                       key={`${artist._id}-${i}` }
-                      name={artist.name}
+                      name={artist.username}
                       description={artist.description}
+                      style={artist.style}
                       showButton={false}
                       />
                   ))}

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import CarouselContainer from "./CarouselContainer";
 
-export default function ({description , name , btntext , showButton , date ,userNumber,clientName, tattooArtistId }){
+export default function ({description , name , btntext , showButton , date ,userNumber ,style ,clientName, tattooArtistId }){
     
     const { VITE_VERCEL_URI }= import.meta.env
 
@@ -11,6 +11,7 @@ export default function ({description , name , btntext , showButton , date ,user
           const response = await axios.post( `${VITE_VERCEL_URI}/booking`, {
             date,
             userNumber,
+            description,
             tattooArtistId,
             clientName
           });
@@ -33,7 +34,7 @@ export default function ({description , name , btntext , showButton , date ,user
                 </div>
             </div>
              <div className="p-4 max-w-[480px]" >
-                Tattoo Style: 
+                Tattoo Style: {style}
             </div> 
             <CarouselContainer/>
             {showButton && 

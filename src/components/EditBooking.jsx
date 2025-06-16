@@ -36,7 +36,7 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
       try {
         const response = await axios.get(`${VITE_VERCEL_URI}/booking/${id}`);
         setBooking(response.data);
-        setDate(response.data.date.toString().split('T')[0]);
+        setDate(response.data.date);
         setTime(response.data.time);
       } catch (error) {
         console.error('Errore nel caricamento della prenotazione', error);
@@ -72,7 +72,7 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
     <>
       <dialog ref={dialogRef} className='dialog-booking' >
 
-        <div className='justify-start h-80 align-middle border-4 border-red-700' >
+        <div className='justify-start h-[600px]] align-middle border-4 border-red-700' >
             {/*  <button className='p-2  bg-slate-400' onClick={()=>setShowForm(!showForm)} >modifica</button>
             { showForm &&  */}
             <div className='justify-between' >
@@ -85,15 +85,15 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
                     Data:
                     <input
                         type="date"
-                        value={date? date : ''}
-                        onChange={(e) => setDate(date ? e.target.value.toString().split('T')[0] : null)}
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
                     />
                     </label>
                     <br />
                     <label>
                     Ora:
                     <input
-                        type="time"
+                        type="string"
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                     />

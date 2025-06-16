@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const login = ({ token, id, username }) => {
     setAuthToken(token);
     setUserId(id);
-    setUsername(name);
+    setUsername(username);
 
     localStorage.setItem('token', token);
     localStorage.setItem('userId', id);

@@ -34,6 +34,10 @@
     @apply p-4 h-14 border-2 bg-zinc-400 text-zinc-800 hover:text-zinc-400 hover:bg-zinc-800 transition font-medium
 
   }
+
+  .dateCard{
+    @apply w-80 h-96 border-2 
+  }
   
   /* ----------------Carousel related --------------- */
 
@@ -54,7 +58,7 @@
   /* --------------------- */
   
   .appointment-card{
-    @apply bg-zinc-300 text-stone-700 h-80 w-60
+    @apply bg-zinc-300 text-stone-700 h-[400px] w-60
   }
   .booking-component {
     @apply h-full w-full bg-gray-700 }

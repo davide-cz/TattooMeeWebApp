@@ -7,7 +7,7 @@ import { useContext } from "react";
 export default function (){
 
     
-    const {userId , username} = useContext(AuthContext)
+    const {userId , username , logout } = useContext(AuthContext)
 
 
     return (
@@ -32,6 +32,11 @@ export default function (){
                     <Link to={'/login'}>
                         Log-in
                     </Link>
+                    }
+                    {
+                        userId &&
+                        <button onClick={logout}>logout</button>
+
                     }
                 </div>
             </nav>

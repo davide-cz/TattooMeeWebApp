@@ -29,7 +29,6 @@ useEffect(() => {
 const [appointmentData, setAppointmentData]=useState({
     email:'',
     telephone:'',
-    day:'',
     tattooer:'',
     clientName:'',
     pierceOrTattoo:'',
@@ -226,10 +225,11 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                             <div className="flex " key={`${artist.name}-${i}`} >
                                 <SingleArtist 
                                     key={artist._id}
-                                    name={artist.name}
-                                    description={artist.description}
+                                    name={artist.username}
+                                    description={appointmentData.description}
                                     showButton={1}
                                     date={appointmentData.day}
+                                    style={artist.style}
                                     userNumber={appointmentData.telephone}
                                     tattooArtistId={artist._id}
                                     clientName={appointmentData.clientName}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const {VITE_MONGO_URI} = import.meta.env;
+const {VITE_VERCEL_URI} = import.meta.env;
 
 
 /* http://localhost:3000 */
@@ -14,7 +14,7 @@ export default  function()  {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const response = await axios.get(`${VITE_MONGO_URI}/artists`);
+        const response = await axios.get(`${VITE_VERCEL_URI}/artists`);
         setArtists(response.data);
       } catch (error) {
         console.error('Errore nel recuperare i tatuatori', error);
@@ -23,7 +23,7 @@ export default  function()  {
     fetchArtists();
   }, []);
 
-      const [date, setDate] = useState('');
+      const [date, setDate] = useState();
       const [time, setTime] = useState('');
       const [artistId, setArtistId] = useState('');
 
@@ -32,7 +32,7 @@ export default  function()  {
       const handleBooking = async () => {
         console.log(artistId)
         try {
-          const response = await axios.post( `${VITE_MONGO_URI}/booking`, {
+          const response = await axios.post( `${VITE_VERCEL_URI}/booking`, {
             date,
             time,
             tattooArtistId: artistId
