@@ -84,7 +84,7 @@ export default function (/* {name , number , description , date} */){
                     <div>
                         <p>vuoi eliminare l'appuntamento selezionato?</p>
                         <button className="m-auto p-2 border-2" 
-                            onClick={()=>deleteAppointment( ap._id )
+                            onClick={()=>deleteAppointment( id )
                         } >elimina appuntamento</button>
                         <button className="m-auto p-2 border-2" 
                             onClick={()=>setShowDeleteOpt(false)

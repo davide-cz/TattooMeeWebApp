@@ -7,9 +7,12 @@ const { VITE_VERCEL_URI } = import.meta.env
 
 export default function (){
 
+  
+
 //   ----------------chiamata per tautatori
 
 const [artists, setArtists] = useState([]);
+const [piercers, setPiercers] = useState([]);
 const [pierceOrTattoo, setPierceOrTattoo] = useState('');
 
 useEffect(() => {
@@ -22,6 +25,18 @@ useEffect(() => {
       }
     };
     fetchArtists();
+  }, []);
+
+useEffect(() => {
+    const fetchPiercers = async () => {
+      try {
+        const response = await axios.get(`${VITE_VERCEL_URI}/user/piercer`);
+        setPiercers(response.data);
+      } catch (error) {
+        console.error('Errore nel recuperare i piercer', error);
+      }
+    };
+    fetchPiercers();
   }, []);
 
 // creazione form di prenotazione giorno / id tattooer / n telefono oppure email
@@ -66,13 +81,13 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
     return(
 
         <>
-            <div className={` booking-component h-full pt-20 m-auto justify-center align-middle `}>
-            <div className=" h-full ">
+            <div className={`h-full w-full m-auto booking-component flex justify-center items-center   `}>
+            <div className="w-screen">
 
-                <div className={counterPerForm===5   ? `flex justify-center` : `booking-form ` }>
-                <div>{
+                <div className={counterPerForm===5   ? `flex justify-center` : ` booking-form ` }>
+                  <div className="m-auto justify-around">{
                         counterPerForm === 0 &&
-                        <div className={`form-item ${smoothTransition}`}>
+                        <div className={` m-auto h-3/4 form-item ${smoothTransition}`}>
 
                           <h2 >Vuoi Fare un Tatuaggio o Piercing?</h2>
                           <div className="flex align-middle justify-center p-4 gap-4" >
@@ -84,7 +99,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                                   setCounterPerForm(counterPerForm + 1)
                                                   setIsVisible(false)}} >piercing</button>
                           </div>
-                        </div>
+                    </div>
                         
                     }
                     
@@ -214,20 +229,21 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                 </div>
                
                 
-                <div className="flex p-2  mt-16 ">{ 
+                <div className="flex p-2 artist-booking w-full ">{ 
                         counterPerForm === 3 && pierceOrTattoo =='tattoo' &&
-                        <label className={`form-item max-w-full justify-center ${smoothTransition}`} htmlFor="select">
+                        <label className={`form-item  justify-center ${smoothTransition}`} htmlFor="select">
                           <div className="flex">
-                            <h2 className="p-2">Scegli un tatuatore</h2>
+                            <h2 className="p-2 mt-4">Scegli un Tatuatore</h2>
                           </div>
-                         <div className="artist-booking flex flex-wrap artists-list">
+                         <div className="artist-booking artists-list">
                             {artists?.map((artist , i) => (
-                            <div className="flex " key={`${artist.name}-${i}`} >
+                            <div className=" " key={`${artist.name}-${i}`} >
                                 <SingleArtist 
                                     key={artist._id}
                                     name={artist.username}
                                     description={appointmentData.description}
                                     showButton={1}
+                                    isTattooer={true}
                                     date={appointmentData.day}
                                     style={artist.style}
                                     userNumber={appointmentData.telephone}
@@ -249,6 +265,49 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                         precedente
                                     </button>
                                 }
+                            </div>
+                        </div>
+                        </label>
+                    
+                    }
+                    
+                </div>
+
+                <div className="flex p-2 artist-booking  ">{ 
+                        counterPerForm === 3 && pierceOrTattoo =='piercing' &&
+                        <label className={`form-item  justify-center ${smoothTransition}`} htmlFor="select">
+                          <div className="flex">
+                            <h2 className="p-2">Scegli un Piercer</h2>
+                          </div>
+                         <div className="artist-booking artists-list">
+                            {piercers?.map((piercer , i) => (
+                            <div className="flex " key={`${piercer.name}-${i}`} >
+                                <SingleArtist 
+                                    key={piercer._id}
+                                    name={piercer.username}
+                                    description={appointmentData.description}
+                                    showButton={1}
+                                    isTattooer={false}
+                                    date={appointmentData.day}
+                                    userNumber={appointmentData.telephone}
+                                    tattooArtistId={piercer._id}
+                                    clientName={appointmentData.clientName}
+                                    btntext={'prenota appuntamento'}
+                                    />
+                            </div>
+                            ))}
+                        
+                        <div className="flex justify-center ">
+                            <div className=" flex gap-4">
+                                {counterPerForm > 0 && 
+                                    <button className="btn m-auto" onClick={()=>{
+                                      setCounterPerForm(counterPerForm -1)
+                                      setIsVisible(false)
+                                      }}>
+                                        precedente
+                                    </button>
+                                }
+                        </div>
                             </div>
                         </div>
                         </label>

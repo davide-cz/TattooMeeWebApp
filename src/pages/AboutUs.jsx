@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Artists from './Artists';
 import { Link } from 'react-router-dom';
 
 export default function ()  {
+
+  //  Smooth Transition per rendering 
+      
+      const [isVisible, setIsVisible] = useState(false);
+      
+      useEffect(() => {
+        // Ritarda l'attivazione della visibilità per consentire l'animazione
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+          }, 100); // Ritardo opzionale per evitare "flash" iniziale
+          return () =>{ clearTimeout(timer)
+            setIsVisible(true);
+        }; // Pulizia al dismount
+      }, [ isVisible ]);
+  
+      const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
+
+
   return (
-    <div className="bg-gray-100 text-gray-800 scrolling-component w-full">
+    <div className={`form-item bg-gray-100 text-gray-800 scrolling-component w-full ${smoothTransition}`}>
       {/* Header */}
       <header className="bg-gray-900 text-white text-center py-8">
         <h1 className="text-3xl font-bold">About Us</h1>

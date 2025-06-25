@@ -8,13 +8,13 @@
 
 @layer base{
   body {
-    @apply text-gray-300 bg-zinc-800
+    @apply text-gray-300 bg-zinc-800 
   }
   textarea{
     @apply  text-gray-800 p-2
   }
   h2{
-    @apply text-2xl font-bold m-auto
+    @apply text-2xl font-bold m-auto 
   }
   p{
     @apply py-2
@@ -25,6 +25,10 @@
 
   img{
     @apply rounded-md  box-border  justify-items-center 
+  }
+
+  .backgroundImage{
+    @apply backdrop-blur-sm bg-[url("./assets/img-3.jpg")]
   }
 
   .nav-element {
@@ -61,16 +65,20 @@
     @apply bg-zinc-300 text-stone-700 h-[400px] w-60
   }
   .booking-component {
-    @apply h-full w-full bg-gray-700 }
+    @apply  w-full  bg-gray-700  }
 
   .booking-form{
-    @apply  w-80 h-96 m-auto flex justify-center items-center 
+    @apply  w-80  m-auto flex justify-center items-center text-center
   }
   .dialog-booking{
     @apply  w-80 h-96 
   }
   .artist-booking {
-    @apply  gap-4 gap-y-16 p-20 justify-around h-full
+    @apply  gap-8 
+  }
+  
+  .artists-list {
+    @apply  h-[800px] py-2 mb-4
   }
   .card{
     @apply  hover:brightness-75 transition-all 
@@ -78,44 +86,48 @@
 
 
   .form-item{
-    @apply transition-all duration-700 transform opacity-0
+    @apply transition-all duration-700 transform opacity-0 
   }
 }
 
 /* background */
 
-.backgroundImage {
-  background-image: url("./assets/img-3.jpg");
+ .backgroundImage {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
-}
+  
+} 
 
 .booking-component {
-  background-image: url("./assets/bg-ink.jpeg");
+  background-image: url("./assets/dark-bg.jpg"); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
- 
-
 
   scrollbar-width: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   
 }
 .artist-page{
   scrollbar-width: none;
-  overflow-y: scroll;
+   /* overflow-y: scroll; */
   
 }
 .artists-list{
+  padding: 1rem;;
   scrollbar-width: none;
-  overflow-y: scroll;
+  overflow-y: scroll; 
+}  
+.artist-booking{
+  padding: 1rem;
+  scrollbar-width: none;
+  overflow-y: scroll; 
   
 }
 .scrolling-component{
   scrollbar-width: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .icon{
@@ -126,3 +138,38 @@
 .artist-page::-webkit-scrollbar {
   display: none;
 }
+
+@media (min-width: 896px){
+    
+        .artists-list{
+            @apply w-full grid grid-cols-2 
+        }
+
+        .booking-form{
+          @apply  w-full m-auto flex justify-center items-center 
+        }
+       
+ }
+
+@media (max-width: 768px){
+    
+        .artists-list{
+            @apply w-full grid grid-cols-1 
+        }
+
+        .booking-form{
+          @apply  w-full m-auto flex justify-center items-center 
+        }
+ }
+
+@media (min-width:1152px){
+    
+        .artists-list{
+            @apply w-full grid grid-cols-3
+        }
+
+        .booking-form{
+          @apply  w-full m-auto flex justify-center items-center 
+        }
+       
+ }

@@ -9,14 +9,16 @@ import { RiLoader5Fill } from "react-icons/ri";
 
 export default function (){
 
-
+  
     
   const {VITE_VERCEL_URI} = import.meta.env;
 
   const rndBackGround = Math.ceil(Math.random()*3)+1
 
     const [artists, setArtists] = useState([]);
+    const [piercers, setPiercers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [renderLoading, setRenderLoading] = useState(true);
 
     const fetchArtists = async () => {
       try {
@@ -32,14 +34,43 @@ export default function (){
       fetchArtists();
     }, []);
     
+    const fetchPiercers = async () => {
+      try {
+        const response = await axios.get(`${VITE_VERCEL_URI}/user/piercer`);
+        setPiercers(response.data);
+        setLoading( false )  
+      } catch (error) {
+        console.error('Errore nel recuperare i piercers', error);
+      }
+    };
+    // Effettua la chiamata API per ottenere i tatuatori
+    useEffect(() => {
+      fetchPiercers();
+    }, []);
+    
+    //  Smooth Transition per rendering 
+    
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {
+      // Ritarda l'attivazione della visibilità per consentire l'animazione
+      const timer = setTimeout(() => {
+          setIsVisible(true);
+        }, 100); // Ritardo opzionale per evitare "flash" iniziale
+        return () =>{ clearTimeout(timer)
+          setIsVisible(true);
+      }; // Pulizia al dismount
+    }, [ isVisible ,loading ]);
+
+    const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
 
     return (
-          <div className="backgroundImage scrolling-component artist-page h-full w-full">
+          <div className={`form-item bg-slate-900 scrolling-component artist-page ${smoothTransition} w-full `}>
             <div className="flex p-20">
               <h2 className="text-lg font-bold m-auto">Tatuatori Disponibili</h2>
             </div>
             { !loading &&
-              <div className="flex gap-8 gap-y-20 flex-shrink-0 flex-wrap  justify-center ">
+              <div className={`flex gap-8 gap-y-20 flex-shrink-0 flex-wrap  justify-center `}>
                   {artists?.map((artist , i)  => (
                   <SingleArtist 
                       key={`${artist._id}-${i}` }
