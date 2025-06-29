@@ -69,10 +69,12 @@ const navigate = useNavigate();
                       <Link key={ap.clientName} to={`/personal-area/appointments/${ap._id}`}>
                       
                         <div className= "text-zinc-400 p-4 rounded-md border-black border-2 " key={`client ${i}`}>
-                          <div className="w-1/2 py-4 ">
-                            <h2>{ap.clientName}</h2>
-                            <h2>{ap.date?.slice(0,10)}</h2>
-                            {/* <p>{ap.description}</p> */}
+                          <div className="w-1/2 py-4 grid grid-cols-2 ">
+                            <div>
+                              <h2>{ap.clientName}</h2>
+                              <h2>{ap.date?.slice(0,10)}</h2>
+                            </div>
+                            <p>{ap.description}</p>
                           </div>
                         </div>
                       </Link>

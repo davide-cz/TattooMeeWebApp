@@ -25,8 +25,10 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
   const [booking, setBooking] = useState(null);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [description, setDescription] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [statoPrenotazione, setStatoPrenotazione] = useState('');
   const [showForm, setShowForm] = useState('');
 
 
@@ -38,6 +40,8 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
         setBooking(response.data);
         setDate(response.data.date);
         setTime(response.data.time);
+        setDescription(response.data.description);
+        setStatoPrenotazione(response.data.status);
       } catch (error) {
         console.error('Errore nel caricamento della prenotazione', error);
       }
@@ -56,10 +60,12 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
       const response = await axios.patch(`${VITE_VERCEL_URI}/booking/${id}`, {
         date,
         time,
+        description
       });
 
       setMessage('Prenotazione aggiornata con successo');
       setBooking(response.data); // Aggiorna il booking con i nuovi dati
+      setStatoPrenotazione('confirmed')
     } catch (error) {
       setError('Errore durante l\'aggiornamento della prenotazione');
       console.error('Errore:', error);
@@ -98,7 +104,16 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
                         onChange={(e) => setTime(e.target.value)}
                     />
                     </label>
+                    <label>
+                    Descrizione:
+                    <input
+                        type="string"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                    </label>
                     <br />
+                    <p>stato prenotazione: {`${statoPrenotazione==='pending' ? 'sospeso' : 'confermato'}`}</p>
                 </div>
                 <button className='px-4 border-2' onClick={handleUpdate}>Aggiorna Prenotazione</button>
                 <button className='px-4 border-2' onClick={()=>setIsOpen()}>Chiudi finestra</button>

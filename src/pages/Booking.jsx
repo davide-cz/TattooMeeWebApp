@@ -83,7 +83,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
         <>
             <div className={`h-full w-full m-auto booking-component flex justify-center items-center   `}>
             <div className="w-screen">
-
+                {/* ---- Form 1 ----- */}
                 <div className={counterPerForm===5   ? `flex justify-center` : ` booking-form ` }>
                   <div className="m-auto justify-around">{
                         counterPerForm === 0 &&
@@ -102,45 +102,52 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                     </div>
                         
                     }
-                    
-                <div>{
-                        counterPerForm === 1 && pierceOrTattoo =='piercing' &&
-                        <div className={`form-item ${smoothTransition}`}>
 
-                          <h2 >che tipo di piercing vorresti?</h2>
-                          <p>Ad esempio zona e dimensione</p>
-                          <div className="flex align-middle justify-center p-4 gap-4" >
-                            <textarea type="text" name="description" id="tat-desc" rows="4" cols="30" 
-                              value={appointmentData.description}
-                              onChange={(e)=>{setAppointmentData(curr=>({...curr, description:e.target.value}))}}
-                              placeholder="scrivi qui la tua idea"
-                              ></textarea>
+                  {/* ---- Form 2 Piercing ----- */}
+
+                  <div>{
+                          counterPerForm === 1 && pierceOrTattoo =='piercing' &&
+                          <div className={`form-item ${smoothTransition}`}>
+
+                            <h2 >che tipo di piercing vorresti?</h2>
+                            <p>Ad esempio zona e dimensione</p>
+                            <div className="flex align-middle justify-center p-4 gap-4" >
+                              <textarea type="text" name="description" id="tat-desc" rows="4" cols="30" 
+                                value={appointmentData.description}
+                                onChange={(e)=>{setAppointmentData(curr=>({...curr, description:e.target.value}))}}
+                                placeholder="scrivi qui la tua idea"
+                                ></textarea>
+                            </div>
+                            
+                            <div className="flex justify-center ">
+                                <div className=" flex gap-4">
+                                    {counterPerForm > 0 && 
+                                        <button className="btn m-auto" onClick={()=>{
+                                          setCounterPerForm(counterPerForm -1)
+                                          setIsVisible(false)
+                                        }}>
+                                            precedente
+                                        </button>
+                                    }
+                                    {counterPerForm < 4 && 
+                                        <button className={`btn m-auto ${appointmentData.description.length < 10  ? 'text-gray-300 hover:bg-zinc-300' : 'text-zinc-800' } `} 
+                                          disabled={appointmentData.description.length < 10 ? true : false} 
+                                          onClick={()=>{
+                                            setCounterPerForm(counterPerForm + 1)
+                                            setIsVisible(false)
+                                        }}>
+                                            successivo
+                                        </button>
+                                    }
+                                </div>
+                            </div>
                           </div>
-                          
-                          <div className="flex justify-center ">
-                              <div className=" flex gap-4">
-                                  {counterPerForm > 0 && 
-                                      <button className="btn m-auto" onClick={()=>{
-                                        setCounterPerForm(counterPerForm -1)
-                                        setIsVisible(false)
-                                      }}>
-                                          precedente
-                                      </button>
-                                  }
-                                  {counterPerForm < 4 && 
-                                      <button className="btn m-auto" onClick={()=>{
-                                        setCounterPerForm(counterPerForm + 1)
-                                        setIsVisible(false)
-                                      }}>
-                                          successivo
-                                      </button>
-                                  }
-                              </div>
-                          </div>
-                        </div>
-                    
-                    }
+                      
+                      }
                 </div>
+
+                {/* ---- Form 2 Tattoo ----- */}
+
                 <div>{
                         counterPerForm === 1 && pierceOrTattoo =='tattoo' &&
                         <div className={`form-item ${smoothTransition}`}>
@@ -165,10 +172,13 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                       </button>
                                   }
                                   {counterPerForm < 4 && 
-                                      <button className="btn m-auto" onClick={()=>{
-                                        setCounterPerForm(counterPerForm + 1)
-                                        setIsVisible(false)
-                                        }}>
+                                      <button className={`btn m-auto ${appointmentData.description.length < 10  ? 'text-gray-300 hover:bg-zinc-300' : 'text-zinc-800' } `} 
+                                        disabled={appointmentData.description.length < 10 ? true : false}
+                                        onClick={()=>{
+                                          setCounterPerForm(counterPerForm + 1);
+                                          setIsVisible(false);
+
+                                          }}>
                                           successivo
                                       </button>
                                   }
@@ -178,9 +188,12 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                     
                     }
                 </div>
+
+                 {/* ---- Form 3 ----- */}   
+
                 <div >{
                     counterPerForm === 2 &&
-                    <div className={`form-item  ${smoothTransition}`}>
+                    <div className={`form-item p-4  ${smoothTransition}`}>
                         <p className="text-gray-300 font-bold">
                         inserisci il tuo numero:
                         </p>
@@ -194,7 +207,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                         <p className="text-gray-300 font-bold">
                           inserisci il tuo nome:
                         </p>
-                        <input type="text" 
+                        <input type="text"
                             value={appointmentData.clientName}
                             id="userName"
                             onChange={(e)=>{setAppointmentData(curr=>({...curr, clientName:e.target.value}))}}
@@ -203,7 +216,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                             />
                             
                           <div className="flex justify-center ">
-                              <div className=" flex gap-4">
+                              <div className=" flex gap-4 mt-4">
                                   {counterPerForm > 0 && 
                                       <button className="btn m-auto" onClick={()=>{
                                         setCounterPerForm(counterPerForm -1)
@@ -214,9 +227,12 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                       </button>
                                   }
                                   {counterPerForm < 4 && 
-                                      <button className="btn m-auto" onClick={()=>{
-                                        setCounterPerForm(counterPerForm + 1)
-                                        setIsVisible(false)
+                                      <button className={`btn m-auto ${appointmentData.telephone.length < 10 || appointmentData.clientName.length < 4  ?
+                                        'text-gray-300 hover:bg-zinc-300' : 'text-zinc-800' } `} 
+                                        disabled={appointmentData.telephone.length < 10  || appointmentData.clientName.length < 4 ? true : false} 
+                                        onClick={()=>{
+                                          setCounterPerForm(counterPerForm + 1)
+                                          setIsVisible(false)
                                         }}>
                                           successivo
                                       </button>
@@ -228,7 +244,8 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                 }
                 </div>
                
-                
+                {/* ---- Form 4 Tattoo ----- */}
+
                 <div className="flex p-2 artist-booking w-full ">{ 
                         counterPerForm === 3 && pierceOrTattoo =='tattoo' &&
                         <label className={`form-item  justify-center ${smoothTransition}`} htmlFor="select">
@@ -272,6 +289,8 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                     }
                     
                 </div>
+
+                {/* ---- Form 4 Piercing ----- */}
 
                 <div className="flex p-2 artist-booking  ">{ 
                         counterPerForm === 3 && pierceOrTattoo =='piercing' &&

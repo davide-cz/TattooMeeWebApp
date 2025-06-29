@@ -27,10 +27,10 @@ const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
 
 
   return (
-    <div className={`form-item backgroundImage backdrop-blur-sm justify-middle  items-center scrolling-component align-middle  h-full w-full ${smoothTransition}`}>
+    <div className={`form-item backgroundImage backdrop-blur-sm justify-middle  items-center  scrolling-component align-middle  h-full w-full ${smoothTransition}`}>
           <div className='backdrop-blur-md h-full'> {/* layer blurred */}
             
-          <div  className='flex m-auto   pt-10 text-zinc-950'>
+          <div  className='flex m-auto p-2  pt-10 text-zinc-950'>
 
             <h2 className='text-3xl' >artink tattoo studio </h2>       
           </div>

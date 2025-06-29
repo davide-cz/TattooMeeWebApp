@@ -59,46 +59,46 @@ export default function (/* {name , number , description , date} */){
     
     
     return (
-        <>
-        <div className="appointment-card m-auto">
-            <div className="flex justify-between">
-                <h2>{clientName}</h2>
-                    <Link to={'/personal-area'}>
-                        <button className="btn">X</button>                    
-                    </Link>
-            </div>
-            <h3>Tel: {userNumber}</h3>
-            <h4>Giorno: {`${dd}-${mm}-${yyyy}`}</h4>
-            <p>{description}</p>
-            <button className="btn"
-                onClick={()=>{
-                setIsOpen(true)
-                }}>modifica
-            </button>
-            <button className="btn" 
-                onClick={()=>setShowDeleteOpt(true)}>
-                elimina
-            </button>
-            {
-                showDeleteOpt &&
-                    <div>
-                        <p>vuoi eliminare l'appuntamento selezionato?</p>
-                        <button className="m-auto p-2 border-2" 
-                            onClick={()=>deleteAppointment( id )
-                        } >elimina appuntamento</button>
-                        <button className="m-auto p-2 border-2" 
-                            onClick={()=>setShowDeleteOpt(false)
-                        } >annulla</button>
+        <div className="h-full flex">
+            <div className="appointment-card m-auto">
+                <div className="flex justify-between">
+                    <h2>{clientName}</h2>
+                        <Link to={'/personal-area'}>
+                            <button className="btn">X</button>                    
+                        </Link>
+                </div>
+                <h3>Tel: {userNumber}</h3>
+                <h4>Giorno: {`${dd}-${mm}-${yyyy}`}</h4>
+                <p>{description}</p>
+                <button className="btn"
+                    onClick={()=>{
+                    setIsOpen(true)
+                    }}>modifica
+                </button>
+                <button className="btn" 
+                    onClick={()=>setShowDeleteOpt(true)}>
+                    elimina
+                </button>
+                {
+                    showDeleteOpt &&
+                        <div>
+                            <p>vuoi eliminare l'appuntamento selezionato?</p>
+                            <button className="m-auto p-2 border-2" 
+                                onClick={()=>deleteAppointment( id )
+                            } >elimina appuntamento</button>
+                            <button className="m-auto p-2 border-2" 
+                                onClick={()=>setShowDeleteOpt(false)
+                            } >annulla</button>
 
-                    </div> 
-            }
-                <EditBooking
-                id={id}
-                currentDate={date}
-                isOpen={isOpen}
-                setIsOpen={c=>{setIsOpen(c)}}
-                />
+                        </div> 
+                }
+                    <EditBooking
+                    id={id}
+                    currentDate={date}
+                    isOpen={isOpen}
+                    setIsOpen={c=>{setIsOpen(c)}}
+                    />
+            </div>
         </div>
-        </>
     )
 }
