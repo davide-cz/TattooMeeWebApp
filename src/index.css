@@ -39,6 +39,12 @@
 
   }
 
+  .close-btn {
+    @apply   px-4 justify-self-end p-2 font-bold rounded-md transition
+
+  }
+  
+
   .dateCard{
     @apply w-80 h-96 border-2 
   }
@@ -62,7 +68,7 @@
   /* --------------------- */
   
   .appointment-card{
-    @apply bg-zinc-300 text-stone-700 h-[400px] w-60
+    @apply bg-zinc-300 text-stone-700 h-[400px] w-60 rounded-md
   }
   .booking-component {
     @apply  w-full  bg-gray-700  }
@@ -77,6 +83,10 @@
     @apply  gap-8 
   }
   
+  .bookingCardItem{
+    @apply p-2
+  }
+
   .artist-page{
     @apply pb-4
   }

@@ -77,7 +77,9 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
   return (
     <>
       <dialog ref={dialogRef} className='dialog-booking' >
-
+        <div className='flex justify-end'>
+          <button className='close-btn btn' onClick={()=>setIsOpen()}>X</button>
+        </div>
         <div className='justify-start h-[600px]] align-middle border-4 border-red-700' >
             {/*  <button className='p-2  bg-slate-400' onClick={()=>setShowForm(!showForm)} >modifica</button>
             { showForm &&  */}
@@ -115,8 +117,9 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
                     <br />
                     <p>stato prenotazione: {`${statoPrenotazione==='pending' ? 'sospeso' : 'confermato'}`}</p>
                 </div>
-                <button className='px-4 border-2' onClick={handleUpdate}>Aggiorna Prenotazione</button>
-                <button className='px-4 border-2' onClick={()=>setIsOpen()}>Chiudi finestra</button>
+                <div className='flex justify-center'>
+                  <button className='px-4 border-2 btn' onClick={handleUpdate}>Aggiorna</button>
+                </div>
             </div>
         </div>
       </dialog>

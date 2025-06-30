@@ -60,16 +60,16 @@ export default function (/* {name , number , description , date} */){
     
     return (
         <div className="h-full flex">
-            <div className="appointment-card m-auto">
+            <div className="appointment-card m-auto shadow-sm shadow-gray-400">
                 <div className="flex justify-between">
-                    <h2>{clientName}</h2>
+                    <h2 className="bookingCardItem">{clientName}</h2>
                         <Link to={'/personal-area'}>
-                            <button className="btn">X</button>                    
+                            <button className="btn rounded-md">X</button>                    
                         </Link>
                 </div>
-                <h3>Tel: {userNumber}</h3>
-                <h4>Giorno: {`${dd}-${mm}-${yyyy}`}</h4>
-                <p>{description}</p>
+                <h3 className="bookingCardItem" >Tel: {userNumber}</h3>
+                <h4 className="bookingCardItem">Giorno: {`${dd}-${mm}-${yyyy}`}</h4>
+                <p className="bookingCardItem">{description}</p>
                 <button className="btn"
                     onClick={()=>{
                     setIsOpen(true)

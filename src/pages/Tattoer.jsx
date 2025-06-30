@@ -28,7 +28,7 @@ const navigate = useNavigate();
     };
     
           //----------- funzione che elimina un appuntamento 
-    
+    /* 
           const deleteAppointment = async (id)=>{
             try{ 
                 const response = await axios.delete(`${VITE_VERCEL_URI}/booking/${id}`)
@@ -37,7 +37,7 @@ const navigate = useNavigate();
             }catch (error) {
               console.error(`Errore nella cancellazione dell'appuntamento`, error);
             } 
-          };
+          }; */
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const navigate = useNavigate();
           } 
         };
         fetchAppointment();
-      }, [deleteAppointment]);
+      }, []);
       
       const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -64,17 +64,17 @@ const navigate = useNavigate();
               }
                 {appointments?.map((ap,i)=>{
                   return (
-                    <div className="mb-4 p-4 " key={`${ap.clientName} ${i}`}>
+                    <div className="mb-4 p-4  " key={`${ap.clientName} ${i}`}>
 
                       <Link key={ap.clientName} to={`/personal-area/appointments/${ap._id}`}>
                       
-                        <div className= "text-zinc-400 p-4 rounded-md border-black border-2 " key={`client ${i}`}>
-                          <div className="w-1/2 py-4 grid grid-cols-2 ">
+                        <div className= "text-zinc-400 p-4 rounded-md shadow-sm shadow-gray-700 border-black border-2 " key={`client ${i}`}>
+                          <div className="w-1/2 py-4">
                             <div>
                               <h2>{ap.clientName}</h2>
                               <h2>{ap.date?.slice(0,10)}</h2>
                             </div>
-                            <p>{ap.description}</p>
+                            <p>{ap.userNumber}</p>
                           </div>
                         </div>
                       </Link>

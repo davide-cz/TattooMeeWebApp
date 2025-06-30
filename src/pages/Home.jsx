@@ -27,7 +27,7 @@ const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
 
 
   return (
-    <div className={`form-item backgroundImage backdrop-blur-sm justify-middle  items-center  scrolling-component align-middle  h-full w-full ${smoothTransition}`}>
+    <div className={`form-item backgroundImage  justify-middle  items-center  scrolling-component align-middle  h-full w-full ${smoothTransition}`}>
           <div className='backdrop-blur-md h-full'> {/* layer blurred */}
             
           <div  className='flex m-auto p-2  pt-10 text-zinc-950'>
@@ -43,19 +43,20 @@ const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
               At <strong>[Your Studio Name]</strong>, we believe that tattoos are more than just ink on skin; they are a form of self-expression, a story, and an art form that lasts a lifetime. 
               Located in the heart of [City Name], we are proud to provide a welcoming and professional space where creativity thrives.
             </p>
-          </section>
-          <div className='flex gap-4 pt-10 justify-center m-auto'>
-      
-            <button className='btn' >
-              <Link to={'/tattooer'}>
-                Tattoo artists
-              </Link>
-            </button>
-            <button className='btn '>
-              <Link to={'/booking'}>
-                Prenotazione
-              </Link></button>
+            <div className='flex gap-4 pt-10 justify-center m-auto'>
+              <button className='btn' >
+                <Link to={'/tattooer'}>
+                  Tattoo artists
+                </Link>
+              </button>
+              <button className='btn '>
+                <Link to={'/booking'}>
+                  Prenotazione
+                </Link>
+              </button>
             </div>
+          </section>
+
           </div>
         </div>
   );
