@@ -27,7 +27,7 @@ const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
 
 
   return (
-    <div className={`form-item backgroundImage  justify-middle  items-center  scrolling-component align-middle  h-full w-full ${smoothTransition}`}>
+    <div className={`form-item backgroundImage  justify-middle  items-center  scrolling-component align-middle   w-full ${smoothTransition}`}>
           <div className='backdrop-blur-md h-full'> {/* layer blurred */}
             
           <div  className='flex m-auto p-2  pt-10 text-zinc-950'>
