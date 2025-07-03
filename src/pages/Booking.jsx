@@ -246,7 +246,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                
                 {/* ---- Form 4 Tattoo ----- */}
 
-                <div className="flex p-2 artist-booking w-full ">{ 
+                <div className="flex p-2 artist-booking h-full w-full ">{ 
                         counterPerForm === 3 && pierceOrTattoo =='tattoo' &&
                         <label className={`form-item  justify-center ${smoothTransition}`} htmlFor="select">
                           <div className="flex">
