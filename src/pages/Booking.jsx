@@ -81,7 +81,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
     return(
 
         <>
-            <div className={`h-full w-full m-auto booking-component flex justify-center items-center   `}>
+            <div className={`h-screen w-full m-auto booking-component flex justify-center items-center   `}>
             <div className="w-screen">
                 {/* ---- Form 1 ----- */}
                 <div className={counterPerForm===5   ? `flex justify-center` : ` booking-form ` }>
