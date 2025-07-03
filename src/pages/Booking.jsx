@@ -81,7 +81,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
     return(
 
         <>
-            <div className={`h-full w-full m-auto booking-component flex justify-center items-center py-2  `}>
+            <div className={`h-screen w-full m-auto booking-component flex justify-center items-center py-2  `}>
             <div className="w-screen">
                 {/* ---- Form 1 ----- */}
                 <div className={counterPerForm===5   ? `flex justify-center` : ` booking-form ` }>
@@ -246,11 +246,11 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                
                 {/* ---- Form 4 Tattoo ----- */}
 
-                <div className="flex p-2 artist-booking w-full ">{ 
+                <div className="flex artist-booking w-full my-4 ">{ 
                         counterPerForm === 3 && pierceOrTattoo =='tattoo' &&
-                        <label className={`form-item  justify-center ${smoothTransition}`} htmlFor="select">
-                          <div className="flex">
-                            <h2 className="p-2 mt-4">Scegli un Tatuatore</h2>
+                        <label className={`form-item m-auto justify-center ${smoothTransition}`} htmlFor="select">
+                          <div className="flex  ">
+                            <h2 className="mt-8">Scegli un Tatuatore</h2>
                           </div>
                          <div className="artist-booking artists-list">
                             {artists?.map((artist , i) => (
@@ -327,7 +327,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                     </button>
                                 }
                         </div>
-                            </div>
+                        </div>
                         </div>
                         </label>
                     
