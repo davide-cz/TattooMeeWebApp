@@ -65,7 +65,7 @@ export default function (){
     const smoothTransition =  isVisible ? 'opacity-100' : 'opacity-0 ';
 
     return (
-          <div className={`form-item bg-slate-900 scrolling-component artist-page ${smoothTransition} w-full `}>
+          <div className={`form-item bg-slate-900 scrolling-component artists-page ${smoothTransition} w-full `}>
             <div className="flex p-20">
               <h2 className="text-lg font-bold m-auto">Tatuatori Disponibili</h2>
             </div>

@@ -122,11 +122,22 @@
   /* overflow-y: scroll; */
   
 }
-.artist-page{
+
+.artists-page {
+  background-image: url("./assets/bg-ink.jpeg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+
   scrollbar-width: none;
-   /* overflow-y: scroll; */
+  /* overflow-y: scroll; */
   
 }
+/* .artist-page{
+  scrollbar-width: none;
+  overflow-y: scroll; 
+  
+} */
+
 .artists-list{
   padding: 1rem;;
   scrollbar-width: none;
@@ -148,8 +159,19 @@
   height: 100%;
 }
 
+.nav-icon{
+  width: 120%;
+  height: 120%;
+}
+
 .artist-page::-webkit-scrollbar {
   display: none;
+}
+
+a.active{
+ font-weight: 700;
+ font-size: large;
+ color: rgb(110, 118, 134);
 }
 
 @media (min-width: 896px){
@@ -164,8 +186,22 @@
        
  }
 
+@media (max-width: 480px){
+
+        .nav-bar{
+          @apply h-auto flex-col m-auto
+        }
+
+        .navLink-container{
+          @apply flex-col
+        }
+      }
 @media (max-width: 768px){
-    
+
+        .nav-bar{
+          @apply h-auto flex m-auto
+        }
+
         .artists-list{
             @apply w-full grid grid-cols-1 
         }
@@ -176,9 +212,14 @@
  }
 
 @media (min-width:1152px){
-    
+
+        
+        .nav-bar{
+          @apply h-auto flex m-auto
+        }
+
         .artists-list{
-            @apply w-full grid grid-cols-3
+            @apply w-full grid grid-cols-4 
         }
 
         .booking-form{
