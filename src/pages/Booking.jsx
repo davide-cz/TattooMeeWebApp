@@ -81,7 +81,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
     return(
 
         <>
-            <div className={`h-screen w-full m-auto booking-component flex justify-center items-center   `}>
+            <div className={`w-full m-auto booking-component min-h-screen flex justify-center items-center   `}>
             <div className="w-screen">
                 {/* ---- Form 1 ----- */}
                 <div className={counterPerForm===5   ? `flex justify-center` : ` booking-form ` }>
@@ -274,6 +274,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                         
                         <div className="flex justify-center ">
                             <div className=" flex gap-4">
+                            </div>
                                 {counterPerForm > 0 && 
                                     <button className="btn m-auto" onClick={()=>{
                                       setCounterPerForm(counterPerForm -1)
@@ -282,7 +283,6 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                         precedente
                                     </button>
                                 }
-                            </div>
                         </div>
                         </label>
                     

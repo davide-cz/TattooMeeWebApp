@@ -130,7 +130,7 @@
 .artists-list{
   padding: 1rem;;
   scrollbar-width: none;
-  overflow-y: scroll; 
+  overflow-y: scroll;   
 }  
 .artist-booking{
   padding: 1rem;
