@@ -13,7 +13,7 @@ export default function () {
 
     return(
         <>
-            <div className="carousel h-64 justify-center align-middle">
+            <div className="carousel h-72 justify-center align-middle">
                 <Carousel
                 slides={slides}
                 />

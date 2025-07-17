@@ -31,17 +31,17 @@ export default function (){
                             <div className="navLink-container flex">
 
                                 <div className="my-auto nav-element">
-                                    <NavLink to={'/'}>
+                                    <NavLink onClick={()=>setIsVisible(false)} to={'/'}>
                                         Home
                                     </NavLink>
                                 </div>                
                                 <div className="my-auto nav-element">
-                                    <NavLink to={'/booking'}>
+                                    <NavLink onClick={()=>setIsVisible(false)} to={'/booking'}>
                                         Prenota
                                     </NavLink>
                                 </div>
                                 <div className="my-auto nav-element">
-                                    <NavLink to={'/about-us'}>
+                                    <NavLink onClick={()=>setIsVisible(false)} to={'/about-us'}>
                                         About Us
                                     </NavLink>
                                 </div>
@@ -50,11 +50,11 @@ export default function (){
                                 </div>
                                 <div  className="flex nav-element my-auto gap-x-4" >{
                                     userId  ? 
-                                    <NavLink to={'/personal-area'}>
+                                    <NavLink onClick={()=>setIsVisible(false)} to={'/personal-area'}>
                                         <FaUserCircle className='nav-icon'/>
                                     </NavLink>
                                     :
-                                    <NavLink to={'/login'}>
+                                    <NavLink onClick={()=>setIsVisible(false)} to={'/login'}>
                                         Log-in
                                     </NavLink>
                                     }

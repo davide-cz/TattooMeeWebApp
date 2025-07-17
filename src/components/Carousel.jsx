@@ -24,7 +24,7 @@ export default function ({slides}) {
                         {slides.map((slide,i)=>{
                             return (
                                 <figure key={`${slide} ${i}`} 
-                                    className={`${currentSlide === i ? '' : 'hidden' } pt-4 h-52  animate-fade`}>
+                                    className={`${currentSlide === i ? '' : 'hidden' } pt-4 h-64  animate-fade`}>
                                         <img className={`${slide? '':'animate-pulse '}  max-h-full hover:opacity-70 transition `} src={slide} alt="" />
                                 </figure>
                             )
