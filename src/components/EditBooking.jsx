@@ -80,7 +80,7 @@ const EditBooking = ( {id , isOpen , setIsOpen }) => {
         <div className='flex justify-end'>
           <button className='close-btn btn' onClick={()=>setIsOpen()}>X</button>
         </div>
-        <div className='justify-start h-[600px]] align-middle border-4 border-red-700' >
+        <div className='justify-start h-[600px]] align-middle ' >
             {/*  <button className='p-2  bg-slate-400' onClick={()=>setShowForm(!showForm)} >modifica</button>
             { showForm &&  */}
             <div className='justify-between' >

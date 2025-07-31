@@ -80,7 +80,7 @@
     @apply  w-80 h-96 
   }
   .artist-booking {
-    @apply  gap-8 
+    @apply  gap-y-8
   }
   
   .bookingCardItem{
@@ -94,7 +94,7 @@
     @apply  h-[800px] py-2 mb-4
   }
   .card{
-    @apply  hover:brightness-75 transition-all 
+    @apply  transition-all 
   }
 
 
@@ -139,7 +139,6 @@
 } */
 
 .artists-list{
-  padding: 1rem;;
   scrollbar-width: none;
   overflow-y: scroll;   
 }  

@@ -30,14 +30,14 @@ export default function ({slides}) {
                             )
                         })}
 
-                    <button className="prev-succ-btn absolute left-10 top-1/2"
+                    <button className="prev-succ-btn absolute left-8 top-1/2"
                         onClick={()=>{
                             prevSlide()
                         }}
                         >
                     <BsChevronLeft />
                     </button>
-                    <button className="prev-succ-btn absolute right-10 top-1/2"
+                    <button className="prev-succ-btn absolute right-8 top-1/2"
                         onClick={()=>{
                             nextSlide()
                         }}
