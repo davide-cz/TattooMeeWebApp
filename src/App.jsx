@@ -15,6 +15,7 @@ import SingleBooking from './components/SingleBooking'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
 import ScrollToTop from './components/ScrollToTop'
+import Footer1 from './components/Footer-1'
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
             <Route path="/personal-area" element={<Tattoer/>} />
             <Route path="/personal-area/appointments/:id" element={<SingleBooking/>} />
           </Routes>
-      <Footer/>
+      <Footer1/>
       </div>    
     </AuthProvider>
     </>

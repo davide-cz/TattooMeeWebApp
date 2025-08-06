@@ -316,6 +316,7 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                             </div>
                             ))}
                         
+                            </div>
                         <div className="flex justify-center ">
                             <div className=" flex gap-4">
                                 {counterPerForm > 0 && 
@@ -326,7 +327,6 @@ const smoothTransition =  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -
                                         precedente
                                     </button>
                                 }
-                        </div>
                             </div>
                         </div>
                         </label>
