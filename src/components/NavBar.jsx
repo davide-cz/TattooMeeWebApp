@@ -21,16 +21,16 @@ export default function (){
                <nav className={` ${isVisible ? 'h-auto':'h-auto'} nav-bar flex justify-between 
                             bg-gray-950/95 backdrop-blur-md border-b border-gray-800 
                             shadow-lg shadow-black/20 p-4 text-gray-300 relative z-50`}>
-                <div className="flex items-center">
+                <div className="flex ">
                     <button 
-                        className="border-2 border-gray-700 p-3 rounded-lg flex items-center justify-center 
+                        className="border-2 md:items-start border-gray-700 p-3 rounded-lg flex items-center justify-center 
                                  hover:border-amber-500 hover:bg-amber-500/10 transition-all duration-300
                                  w-12 h-12" 
                         onClick={()=>{setIsVisible(!isVisible)}}
                     >
-                        <IoMenu className='w-6 h-6'/>
+                        <IoMenu className='w-6 h-6  '/>
                     </button>
-                    <div className="ml-4 hidden md:block">
+                    <div className={`ml-4 hidden sm:block ${isVisible && 'sm:my-1' } my-auto `}>
                         <span className="text-xl font-bold bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">
                             Artink Studio
                         </span>

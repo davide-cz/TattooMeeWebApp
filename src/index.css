@@ -77,7 +77,7 @@
     @apply  w-80  m-auto flex justify-center items-center text-center
   }
   .dialog-booking{
-    @apply  w-80 h-96 
+    @apply  w-80 h-[450px] rounded-md
   }
   .artist-booking {
     @apply  gap-y-8
